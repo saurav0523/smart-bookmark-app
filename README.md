@@ -19,11 +19,7 @@ A private bookmark manager with **Google-only sign-in** and **real-time sync** a
 
 ## Supabase setup (you do this, then add credentials)
 
-The app needs a Supabase project and Google OAuth. Follow the step-by-step guide:
-
-- **[SUPABASE_SETUP.md](./SUPABASE_SETUP.md)** — create project, get URL/anon key, enable Google, run SQL for `bookmarks` table + RLS + Realtime.
-
-When done, create `.env` or `.env.local` with your values:
+Create a Supabase project, enable Google OAuth, run SQL for `bookmarks` table + RLS + Realtime. Get **Project URL** and **anon key** from Dashboard → Project Settings → API. Create `.env` or `.env.local` with:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co
@@ -82,7 +78,6 @@ src/
 └── middleware.ts           # Session refresh (must stay at src root)
 ```
 
-Root: `SUPABASE_SETUP.md` for setup steps.
 
 ---
 
