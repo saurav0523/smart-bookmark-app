@@ -113,7 +113,7 @@ Replace:
 
 3. Save the file. Do not commit `.env.local` to git.
 
----
+----
 
 ## Step 6: Production (Vercel) – Redirect URL
 
