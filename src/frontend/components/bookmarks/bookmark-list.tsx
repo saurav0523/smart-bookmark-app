@@ -5,7 +5,7 @@ import { AddBookmarkForm } from './add-bookmark-form';
 import { BookmarkCard } from './bookmark-card';
 
 export function BookmarkList() {
-  const { bookmarks, loading, error, addBookmark, deleteBookmark } = useBookmarks();
+  const { bookmarks, loading, error, userId, addBookmark, deleteBookmark } = useBookmarks();
 
   return (
     <div className="space-y-8">
@@ -37,7 +37,7 @@ export function BookmarkList() {
         <ul className="space-y-3">
           {bookmarks.map((bookmark) => (
             <li key={bookmark.id}>
-              <BookmarkCard bookmark={bookmark} onDelete={deleteBookmark} />
+              <BookmarkCard bookmark={bookmark} currentUserId={userId} onDelete={deleteBookmark} />
             </li>
           ))}
         </ul>

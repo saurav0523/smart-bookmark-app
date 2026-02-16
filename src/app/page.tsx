@@ -16,7 +16,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
       <div className="w-full max-w-lg text-center">
         {queryError === 'auth' && (
           <p className="mb-6 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm px-4 py-3">
-            Sign in failed. Add <code className="bg-red-500/20 px-1 rounded">http://localhost:3000/**</code> in Supabase → Auth → URL Configuration → Redirect URLs, then try again.
+            Sign in failed. Add <code className="bg-red-500/20 px-1 rounded">https://smart-bookmark-app-chi-ten.vercel.app/**</code> in Supabase → Auth → URL Configuration → Redirect URLs, then try again.
           </p>
         )}
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/20 mb-8">

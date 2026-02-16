@@ -7,13 +7,22 @@ function hostname(url: string) {
   try { return new URL(url).hostname; } catch { return url; }
 }
 
-export function BookmarkCard({ bookmark, onDelete }: { bookmark: BookmarkRow; onDelete: (id: string) => Promise<void> }) {
+export function BookmarkCard({
+  bookmark,
+  currentUserId,
+  onDelete,
+}: {
+  bookmark: BookmarkRow;
+  currentUserId: string | null;
+  onDelete: (id: string) => Promise<void>;
+}) {
   const [deleting, setDeleting] = useState(false);
+  const isOwn = currentUserId === bookmark.user_id;
 
   const onDeleteClick = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    if (deleting) return;
+    if (deleting || !isOwn) return;
     setDeleting(true);
     try {
       await onDelete(bookmark.id);
@@ -36,10 +45,16 @@ export function BookmarkCard({ bookmark, onDelete }: { bookmark: BookmarkRow; on
           <h3 className="font-medium text-stone-100 truncate group-hover:text-amber-400/90 transition">
             {title}
           </h3>
-          <p className="font-mono text-sm text-stone-500 truncate mt-0.5">
-            {hostname(bookmark.url)}
-          </p>
+          <div className="flex items-center gap-2 mt-0.5">
+            <p className="font-mono text-sm text-stone-500 truncate">
+              {hostname(bookmark.url)}
+            </p>
+            {bookmark.owner_email && (
+              <span className="text-xs text-stone-600">· {bookmark.owner_email}</span>
+            )}
+          </div>
         </div>
+        {isOwn && (
         <button
           type="button"
           onClick={onDeleteClick}
@@ -58,6 +73,7 @@ export function BookmarkCard({ bookmark, onDelete }: { bookmark: BookmarkRow; on
             </svg>
           )}
         </button>
+        )}
       </div>
     </a>
   );
