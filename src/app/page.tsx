@@ -1,6 +1,7 @@
 import { createClient } from '@/server/supabase/server';
 import { redirect } from 'next/navigation';
 import { SignInButton } from '@/frontend/components/auth/sign-in-button';
+import { IconBookmark } from '@/frontend/components/icons';
 
 export default async function HomePage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
   const supabase = await createClient();
@@ -20,9 +21,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
           </p>
         )}
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/20 mb-8">
-          <svg className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
-          </svg>
+          <IconBookmark className="w-8 h-8 text-amber-400" />
         </div>
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-stone-50 mb-3">
           Smart Bookmark

@@ -9,7 +9,7 @@ export async function GET(request: Request) {
 
   if (code) {
     const cookieStore = await cookies();
-    const redirectUrl = `${origin}${next}`;
+    const redirectUrl = `${origin}${next}?signed_in=1`;
     const response = NextResponse.redirect(redirectUrl);
 
     const supabase = createServerClient(

@@ -5,5 +5,5 @@ export async function POST(request: Request) {
   const supabase = await createClient();
   await supabase.auth.signOut();
   const url = new URL(request.headers.get('origin') || request.url);
-  return NextResponse.redirect(new URL('/', url.origin), { status: 302 });
+  return NextResponse.redirect(new URL('/?signed_out=1', url.origin), { status: 302 });
 }
