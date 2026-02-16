@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { Outfit, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
+import { ToastFromUrl } from '@/frontend/components/ui/toast-from-url';
 
 const outfit = Outfit({
   variable: '--font-outfit',
@@ -19,14 +21,14 @@ export const metadata: Metadata = {
   description: 'Private bookmark manager with real-time sync. Sign in with Google and access your bookmarks everywhere.',
 };
 
-import { ToastFromUrl } from '@/frontend/components/ui/toast-from-url';
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body className={`${outfit.variable} ${jetbrainsMono.variable} antialiased`} suppressHydrationWarning>
         {children}
-        <ToastFromUrl />
+        <Suspense fallback={null}>
+          <ToastFromUrl />
+        </Suspense>
       </body>
     </html>
   );
