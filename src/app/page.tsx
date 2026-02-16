@@ -31,9 +31,6 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
           Save your links privately. Syncs in real time across all your tabs and devices.
         </p>
         <SignInButton />
-        <p className="text-stone-500 text-sm mt-8">
-          No email/password — sign in with Google only.
-        </p>
       </div>
     </div>
   );

@@ -66,6 +66,7 @@ Your live URL will be something like `https://smart-bookmark-app-xxx.vercel.app`
 - **Realtime:** App subscribes to `postgres_changes` on `bookmarks`; run `alter publication supabase_realtime add table public.bookmarks;` so events are broadcast. Fallback: `BroadcastChannel` for same-origin tabs.
 - **Privacy:** RLS on `bookmarks` with `auth.uid() = user_id` on all policies.
 - **OAuth after deploy:** Add production URL in Supabase Redirect URLs and in Google Console Authorized redirect URIs (`/auth/callback`).
+- **Production cookies:** Auth callback and middleware set cookies with `secure: true` and `sameSite: 'lax'` when `VERCEL` or `NODE_ENV=production` so the session sticks after redirect to `/dashboard`.
 
 ---
 
