@@ -30,9 +30,11 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env with real keys (template .env is committed)
+# env — never commit (copy .env.example to .env and fill values)
+.env
 .env.local
 .env*.local
+!.env.example
 
 # vercel
 .vercel
