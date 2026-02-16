@@ -1,5 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
@@ -16,6 +14,9 @@
 # next.js
 /.next/
 /out/
+
+# default Next.js public assets (unused in this app)
+/public/*.svg
 
 # production
 /build
@@ -42,3 +43,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE / editor
+.vscode/
+.idea/
+.cursor/
+
+# logs
+*.log
