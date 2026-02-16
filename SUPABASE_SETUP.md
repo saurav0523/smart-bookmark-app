@@ -99,7 +99,7 @@ alter publication supabase_realtime add table public.bookmarks;
 ## Step 5: Create Your Local Environment File
 
 1. In the project root, copy the example env file:
-   - Copy `.env` to `.env.local` (or edit `.env` with your values).
+   - Create `.env` or `.env.local` with your values.
 2. Open `.env.local` and set:
 
 ```env

@@ -23,7 +23,7 @@ The app needs a Supabase project and Google OAuth. Follow the step-by-step guide
 
 - **[SUPABASE_SETUP.md](./SUPABASE_SETUP.md)** — create project, get URL/anon key, enable Google, run SQL for `bookmarks` table + RLS + Realtime.
 
-When done, copy `.env` to `.env.local` and add your real values (or put them in `.env` and keep `.env.local` for overrides):
+When done, create `.env` or `.env.local` with your values:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co
@@ -82,7 +82,7 @@ src/
 └── middleware.ts           # Session refresh (must stay at src root)
 ```
 
-Root: `.env` (template), `SUPABASE_SETUP.md` for setup steps.
+Root: `SUPABASE_SETUP.md` for setup steps.
 
 ---
 
